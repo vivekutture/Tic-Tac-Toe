@@ -31,6 +31,7 @@ function Reset() {
     boardCell.innerHTML = "";
     boardCell.classList.add("hoverBlock");
     boardCell.disabled = false;
+    boardCell.style.backgroundColor = "transparent";
   }
   window.location.reload();
 }
@@ -50,6 +51,12 @@ function FindWinner() {
   for (const element of checkWinner) {
     const [a, b, c] = element;
     if (board[a] && board[a] === board[b] && board[b] === board[c]) {
+      let firstCell = document.getElementById("block-" + (a + 1));
+      let secondCell = document.getElementById("block-" + (b + 1));
+      let thirdCell = document.getElementById("block-" + (c + 1));
+      firstCell.style.backgroundColor = "yellow";
+      secondCell.style.backgroundColor = "yellow";
+      thirdCell.style.backgroundColor = "yellow";
       for (let i = 1; i <= 9; i++) {
         let boardCell = document.getElementById("block-" + i);
         boardCell.classList.remove("hoverBlock");
