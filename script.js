@@ -47,7 +47,7 @@ function FindWinner() {
     [0, 4, 8],
     [2, 4, 6],
   ];
-  let isAnyoneWon = false;
+  let isAnyoneWins = false;
   for (const element of checkWinner) {
     const [a, b, c] = element;
     if (board[a] && board[a] === board[b] && board[b] === board[c]) {
@@ -64,17 +64,17 @@ function FindWinner() {
       }
       let resultText =
         board[a] == "X"
-          ? "Congratulations ! Player 1 Won !!!"
-          : "Congratulations ! Player 2 Won !!!";
+          ? "Congratulations ! Player 1 Wins !!!"
+          : "Congratulations ! Player 2 Wins !!!";
       let resColor = board[a] == "X" ? "red" : "green";
       res.innerHTML = resultText;
       res.style.color = resColor;
-      isAnyoneWon = true;
+      isAnyoneWins = true;
       setTimeout(Reset, 2000);
       return;
     }
   }
-  if (!isAnyoneWon && emptyCells == 0) {
+  if (!isAnyoneWins && emptyCells == 0) {
     res.innerHTML = "Game Over !!!";
     res.style.color = "black";
     setTimeout(Reset, 2000);
